@@ -1,0 +1,18 @@
+resources:
+  - name: spring-boot-concourse
+    type: git
+    check_every: 10s
+    source:
+      uri: https://github.com/jarlehansen/spring-boot-concourse.git
+      branch: master
+
+jobs:
+- name: build
+  public: true
+  plan:
+  - get: spring-boot-concourse
+    trigger: true
+  - task: Build project
+    file: spring-boot-concourse/concourse/tasks/build.yml
+  - task: Deploy artifact
+    file: spring-boot-concourse/concourse/tasks/deploy.yml
