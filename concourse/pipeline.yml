@@ -3,7 +3,7 @@ resources:
     type: git
     check_every: 10s
     source:
-      uri: https://github.com/ashish060211/spring-boot-concourse
+      uri: https://github.com/jarlehansen/spring-boot-concourse.git
       branch: master
 
 jobs:
